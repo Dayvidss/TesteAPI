@@ -1,0 +1,17 @@
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csproj.CoreCompileInputs.cache
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Cencosud.TesteAPI.exe.config
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Cencosud.TesteAPI.exe
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Cencosud.TesteAPI.pdb
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\EntityFramework.dll
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\EntityFramework.SqlServer.dll
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\EntityFramework.xml
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\EntityFramework.SqlServer.xml
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Newtonsoft.Json.pdb
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Newtonsoft.Json.xml
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csproj.CopyComplete
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.exe
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.pdb
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csprojAssemblyReference.cache
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.Resources.Message.resources
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csproj.GenerateResource.cache

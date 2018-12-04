@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{500B1C4C-233E-45A6-965F-57EBC148E9EF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Cencosud.TesteAPI</RootNamespace>
+    <AssemblyName>Cencosud.TesteAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arguments\Funcionario\ObterFuncionarioResponse.cs" />
+    <Compile Include="Arguments\UsuarioAD\ObterUsuarioAD.cs" />
+    <Compile Include="Arguments\Usuario\AddUserRequest.cs" />
+    <Compile Include="Arguments\Usuario\AddUserResponse.cs" />
+    <Compile Include="Data\Acao.cs" />
+    <Compile Include="Data\Acesso.cs" />
+    <Compile Include="Data\AdTable.cs" />
+    <Compile Include="Data\AGP.cs" />
+    <Compile Include="Data\Ambiente.cs" />
+    <Compile Include="Data\Aplicativo.cs" />
+    <Compile Include="Data\Aplicativo_Ambiente.cs" />
+    <Compile Include="Data\Arquivo_Ticket.cs" />
+    <Compile Include="Data\Autorizante_App.cs" />
+    <Compile Include="Data\Bandeira.cs" />
+    <Compile Include="Data\Banner.cs" />
+    <Compile Include="Data\Categoria.cs" />
+    <Compile Include="Data\Colecao.cs" />
+    <Compile Include="Data\Constrinfo.cs" />
+    <Compile Include="Data\Conteudo.cs" />
+    <Compile Include="Data\Funcao.cs" />
+    <Compile Include="Data\GrupoAtendimento_Usuario.cs" />
+    <Compile Include="Data\Grupo_Atendimento.cs" />
+    <Compile Include="Data\Inf_Adicional.cs" />
+    <Compile Include="Data\Inf_Adicional_Tipo_Colecao.cs" />
+    <Compile Include="Data\Log_Sistema.cs" />
+    <Compile Include="Data\Loja.cs" />
+    <Compile Include="Data\Marco_Tramitacao.cs" />
+    <Compile Include="Data\Modulo.cs" />
+    <Compile Include="Data\Parametro.cs" />
+    <Compile Include="Data\Perfil.cs" />
+    <Compile Include="Data\Perfil_App.cs" />
+    <Compile Include="Data\Perfil_App_Conteudo.cs" />
+    <Compile Include="Data\Perfil_Usuario.cs" />
+    <Compile Include="Data\Permissao.cs" />
+    <Compile Include="Data\Pessoa.cs" />
+    <Compile Include="Data\Pessoa_Solicitacao.cs" />
+    <Compile Include="Data\Registro_Massivo.cs" />
+    <Compile Include="Data\Solicitacao.cs" />
+    <Compile Include="Data\Status_Ticket.cs" />
+    <Compile Include="Data\Ticket.cs" />
+    <Compile Include="Data\Tipo_Banner.cs" />
+    <Compile Include="Data\Tipo_Colecao.cs" />
+    <Compile Include="Data\Tipo_Inf_Adicional.cs" />
+    <Compile Include="Data\Tramitacao.cs" />
+    <Compile Include="Data\Usuario.cs" />
+    <Compile Include="Data\Valor_Informacao.cs" />
+    <Compile Include="Data\Video_Tela_Inicial.cs" />
+    <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Arguments\Usuario\ObterUserRequest.cs" />
+    <Compile Include="Arguments\Usuario\ObterUserResponse.cs" />
+    <Compile Include="Entities\UsuarioAD.cs" />
+    <Compile Include="Enums\TipoServico.cs" />
+    <Compile Include="Enums\UserStatusAD.cs" />
+    <Compile Include="Resources\Message.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Message.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Servico.cs" />
+    <Compile Include="Enums\TipoAcao.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Message.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
