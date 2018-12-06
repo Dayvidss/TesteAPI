@@ -9,6 +9,8 @@ namespace Cencosud.TesteAPI.Arguments.Usuario
         public string Cpf { get; set; }
         [JsonProperty("p_MATRICULA")]
         public string Matricula { get; set; }
+        [JsonProperty("p_LOJA")]
+        public int Loja { get; set; }
         [JsonProperty("p_NOME")]
         public string Nome { get; set; }
         [JsonProperty("x_return_message")]

@@ -1,24 +1,25 @@
-﻿namespace Cencosud.TesteAPI.Arguments.Usuario
+﻿using Newtonsoft.Json;
+
+namespace Cencosud.TesteAPI.Arguments.Usuario
 {
     public class AddUserRequest
     {
-        private string cpf;
-        private string matricula;
-        private string nome;
-        private string perfil;
-        private int loja;
-        private int acao;
-        private string cod_agp;
-        private int origem;
-
-        public string Cpf { get => cpf; set => cpf = value; }
-        public string Matricula { get => matricula; set => matricula = value; }
-        public string Nome { get => nome; set => nome = value; }
-        public string Perfil { get => perfil; set => perfil = value; }
-        public int Loja { get => loja; set => loja = value; }
-        public int Acao { get => acao; set => acao = value; }
-        public string Cod_agp { get => cod_agp; set => cod_agp = value; }
-        public int Origem { get => origem; set => origem = value; }
+        [JsonProperty("cpf")]
+        public string Cpf { get ; set ; }
+        [JsonProperty("matricula")]
+        public string Matricula { get ; set ; }
+        [JsonProperty("nome")]
+        public string Nome { get ; set ; }
+        [JsonProperty("perfil")]
+        public string Perfil { get ; set ; }
+        [JsonProperty("loja")]
+        public int Loja { get ; set ; }
+        [JsonProperty("acao")]
+        public int Acao { get ; set ; }
+        [JsonProperty("cod_agp")]
+        public string Cod_agp { get ; set ; }
+        [JsonProperty("origem")]
+        public int Origem { get ; set ; }
 
         protected AddUserRequest()
         {
@@ -27,14 +28,14 @@
 
         public AddUserRequest(string cpf, string matricula, string nome, string perfil, int loja, int acao, string cod_agp)
         {
-            this.Cpf = cpf;
-            this.Matricula = matricula;
-            this.Nome = nome;
-            this.Perfil = perfil;
-            this.Loja = loja;
-            this.Acao = acao;
-            this.Cod_agp = cod_agp;
-            this.Origem = 1;
+            Cpf = cpf;
+            Matricula = matricula;
+            Nome = nome;
+            Perfil = perfil;
+            Loja = loja;
+            Acao = acao;
+            Cod_agp = cod_agp;
+            Origem = 1;
         }
 
         public static explicit operator AddUserRequest(Entities.Usuario entidade)

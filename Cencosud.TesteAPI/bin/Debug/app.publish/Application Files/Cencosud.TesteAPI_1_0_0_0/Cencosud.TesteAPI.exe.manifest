@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Cencosud.TesteAPI.exe" version="1.0.0.0" publicKeyToken="8af3b3507c1a4611" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Cencosud.TesteAPI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Cencosud.TesteAPI.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opções de Manifesto UAC
+          Se desejar mudar o nível de Controle de Conta de Usuário do Windows, substitua o 
+          nó requestedExecutionLevel por um dos seguintes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Se deseja usar a Virtualização de Arquivos e Registro para compatibilidade 
+         com versões anteriores, exclua o nó requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cencosud.TesteAPI.exe" size="131008">
+      <assemblyIdentity name="Cencosud.TesteAPI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>dpoemnVQjNIlWwmFU+C1sTbk5MDuvNykTzB4y0+h7RE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="5225168">
+      <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>nCD7KthqdgsMauvZMByQCYkdAq4UcgqTkmwLU1uK0Js=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.SqlServer.dll" size="622288">
+      <assemblyIdentity name="EntityFramework.SqlServer" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4OEmw7inupUB0D+Z1Upcu9F0vOy2FwCYq0zBIZ8n+TM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="675240">
+      <assemblyIdentity name="Newtonsoft.Json" version="12.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tmdJuB4UifzY11SyrTnr4NtoE0TjkqP0nckjVkO9vQY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Cencosud.TesteAPI.exe.config" size="1299">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bVCmZ4/cDbqMVUO2SvAXDlYfHuQSJf+F0w7SUrVtXl4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=CENCOSUD\eb9149" issuerKeyHash="4c80927277f29e68a723e9494fab63ac07a26d95" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>cmPG8vfEoizMf1DzkClWPtf/POOhC/sXTKDOfKLtp58=</DigestValue></Reference></SignedInfo><SignatureValue>asg6nCfVhLhqK00HnvOpceP8+SmBtk1ghkr1aGWzqSklsjAdKlAW5cgVzF420wEPtMsMm37oZ93eYseR8Lu8YijGhphKfW0VQpkE69RRb4fFYBCQ9ajHtk5hOCH+APls3X8j3jqC7nhz+aVPhwBPBh9Wv9PtoKUhdlhJfq3pm4E=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>rbcSbjNBz9F15AgXnflmwJR+2PTNss0JHcKayQm1fCwcpZOvf4zbdL+8g9GnussrfnXSMSp1t6NUC5j4CgMExbD23cySILUB23Ib2MLIywzQdKJAZZw79J6C5k+wnTyfiXkfY7H9yZ0qZ1LkrlySLR+ldaclnf6z/ay8uxm7wwk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="9fa7eda27ccea04c17fb0ba1e33cffd73e562990f3507fcc2ca2c4f7f2c66372" Description="" Url=""><as:assemblyIdentity name="Cencosud.TesteAPI.exe" version="1.0.0.0" publicKeyToken="8af3b3507c1a4611" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=CENCOSUD\eb9149</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>byDIaJBgTJ2xIvUuvo44lgpCsTnaTZSEbxPDiIgpZkc=</DigestValue></Reference></SignedInfo><SignatureValue>BETI+4oC+eODJtZtVa7MXkeCCQ+C40WZyKXG0ma6CIWvcdAqvPwmpk0bn9j3JSSWG+1p7qnSfx1eitvsJAy7pCnYJwju+Y/N+NXgVinBWBgLjAhJUuA2rsj30pwMTzVO9PCxM2PrgHNbXUw2a3rXSE8mnWFOU3ji6dH//d6FGns=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>rbcSbjNBz9F15AgXnflmwJR+2PTNss0JHcKayQm1fCwcpZOvf4zbdL+8g9GnussrfnXSMSp1t6NUC5j4CgMExbD23cySILUB23Ib2MLIywzQdKJAZZw79J6C5k+wnTyfiXkfY7H9yZ0qZ1LkrlySLR+ldaclnf6z/ay8uxm7wwk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQGJxW1tJHOJhPx4jIYbA/UjANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4AQwBFAE4AQwBPAFMAVQBEAFwAZQBiADkAMQA0ADkwHhcNMTgxMjA2MTI0NjM4WhcNMTkxMjA2MTg0NjM4WjApMScwJQYDVQQDHh4AQwBFAE4AQwBPAFMAVQBEAFwAZQBiADkAMQA0ADkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAK23Em4zQc/RdeQIF535ZsCUftj0zbLNCR3CmskJtXwsHKWTr3+M23S/vIPRp7rLK3510jEqdbejVAuY+AoDBMWw9t3MkiC1AdtyG9jCyMsM0HSiQGWcO/SeguZPsJ08n4l5H2Ox/cmdKmdS5K5cki0fpXWnJZ3+s/2svLsZu8MJAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAUzrULBiIccocHV1YY9QrjxB4m9ILm6187RYuCEU/stHcaMNqDZ02lHPvoup3QMfb49kTl2JLELzcOQr8/93wmXj5cuuKp94gbngq5y75lUnqKt8+pfYQkkX/kykDICCmUBlZoZrV53hJ9Na0hPtMV0g4ifT/q3ooZFMpKf6TZ7I=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

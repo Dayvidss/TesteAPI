@@ -15,3 +15,7 @@ D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.pdb
 D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csprojAssemblyReference.cache
 D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.Resources.Message.resources
 D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.csproj.GenerateResource.cache
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Cencosud.TesteAPI.exe.manifest
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\bin\Debug\Cencosud.TesteAPI.application
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.exe.manifest
+D:\workspace\Diversos\TesteAPI\Cencosud.TesteAPI\obj\Debug\Cencosud.TesteAPI.application

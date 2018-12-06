@@ -5,7 +5,6 @@ using Cencosud.TesteAPI.Services;
 using System;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Cencosud.TesteAPI
 {
@@ -13,22 +12,46 @@ namespace Cencosud.TesteAPI
     {
         static void Main(string[] args)
         {
-            int teste = 2;
+            int teste = 0;
+
+            Console.WriteLine("Quantos registros para efetuar o teste de stress:");
+            int qtd = int.Parse(Console.ReadLine());
+            Console.WriteLine("Será testado o serviço do AD?");
+            string op = Console.ReadLine();
+
+            var tIni = DateTime.Now.TimeOfDay;
+            var tfim = new TimeSpan();
+
+            Console.Clear();
+            var path1 = string.Empty;
+            var path2 = string.Empty;
+
+            if (op == "S" || op == "s")
+            {
+                teste = 2;
+                path1 = @"C:\Temp\logADObter.txt";
+                path2 = @"C:\Temp\logAgpAdd.txt";
+            }
+            else
+            {
+                path1 = @"C:\Temp\logAgpObter.txt";
+                path2 = @"C:\Temp\logAgpAdd.txt";
+            }
 
             AGP contexto = new AGP();
-            var path1 = @"C:\Temp\logAgpObter.txt";
-            //var path2 = @"C:\Temp\logAgpAdd.txt";
             var fi1 = new FileInfo(path1);
-            //var fi2 = new FileInfo(path2);
+            var fi2 = new FileInfo(path2);
             var sw1 = fi1.CreateText();
-            //var sw2 = fi2.CreateText();
+            var sw2 = fi2.CreateText();
 
             var query = contexto.Pessoa
                 .Where(x => x.Psa_CargoRH.Contains("Atendente") || x.Psa_CargoRH.Contains("Operador Caixa"))
                 .Where(x => x.Lja_Id != 1 && x.Lja_Id != 2 && x.Lja_Id != 128)
                 .Where(x => x.Psa_Matricula.Length >= 7)
+                .Where(x => x.Psa_Cpf.Length >= 11)
                 //.Where(x=>x.Usuario.Uso_Login == "EB9149" )
-                .Take(10)
+                .Take(qtd)
+                .OrderByDescending(x => x.Psa_Id)
                 .Select(x => new { x.Psa_Cpf, x.Psa_Matricula, x.Psa_Nome, x.Lja_Id, x.Loja.Lja_Nome, x.Usuario.Uso_Login })
                 .ToList();
 
@@ -60,13 +83,23 @@ namespace Cencosud.TesteAPI
                         perfil = item.Lja_Nome.Substring(0, 2) + "_OPCX";
                     }
 
-                    //var user1 = new ObterUserRequest(cpf, matricula, (int)TipoAcao.Consulta);
-                    //var user2 = new AddUserRequest(item.Psa_Cpf, matricula, nome, perfil, loja, (int)TipoAcao.Inclusão, cod_agp);
+                    var obterUsuario = new Request(cpf, matricula, loja, (int)TipoAcao.Consulta);
+                    var addUsuario = new Request(cpf, matricula, nome, perfil, loja, (int)TipoAcao.Inclusão, cod_agp);
 
-                    //var r1 = new Servico((int)TipoServico.Emporium).ObterUsuario(user1);
-                    //var r2 = new Servico((int)TipoServico.Emporium).ObterUsuario(user2);
-                    Console.WriteLine(string.Format("=> {0}|{1}|{2}|{3}|{4}|{5}", cpf, matricula, nome, perfil, loja, cod_agp));
-                    sw1.WriteLine(string.Format("=> {0}|{1}|{2}|{3}|{4}|{5}", cpf, matricula, nome, perfil, loja, cod_agp));
+                    var r1 = new Servico((int)TipoServico.Emporium).ApiEmporiumUserAsync(obterUsuario);
+
+                    if (r1.Result.Nome is null)
+                    {
+                        Console.WriteLine(string.Format("=> {1}|{0}|{3:000}|{2} => não tem cadastro no Emporium", matricula, cpf, nome, loja));
+                        sw1.WriteLine(string.Format("=> {1}|{0}|{3:000}|{2} => não tem cadastro no Emporium", matricula, cpf, nome, loja));
+                        var r2 = new Servico((int)TipoServico.Emporium).ApiEmporiumUserAsync(addUsuario);
+                        sw2.WriteLine(string.Format("=> {0}|{1}|{2:000}|{3}|{4}", r2.Result.Cpf, r2.Result.Matricula, r2.Result.Loja, r2.Result.Nome, r2.Result.Msg));
+                    }
+                    else
+                    {
+                        Console.WriteLine(string.Format("=> {0}|{1}|{2:000}|{3}|{4}", r1.Result.Cpf, r1.Result.Matricula, r1.Result.Loja, r1.Result.Nome, r1.Result.Msg));
+                        sw1.WriteLine(string.Format("=> {0}|{1}|{2:000}|{3}|{4}", r1.Result.Cpf, r1.Result.Matricula, r1.Result.Loja, r1.Result.Nome, r1.Result.Msg));
+                    }
                 }
             }
             else if (teste == (int)TipoServico.ActiveDirectory)
@@ -122,10 +155,22 @@ namespace Cencosud.TesteAPI
                     }
                 }
             }
-
+            tfim = DateTime.Now.TimeOfDay;
+            var tTotal = tfim.Subtract(tIni);
             sw1.Close();
-            //sw2.Close();
-            Console.WriteLine("Finalizado...");
+            sw2.Close();
+
+            if (teste == (int)TipoServico.ActiveDirectory)
+            {
+                Console.Clear();
+                Console.WriteLine("Teste de stress na API do Active Directory realizado com sucesso...");
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(string.Format("Inicio do processamento => {0:00}:{1:00}:{2:00}\nTempo gasto => {3}", tIni.Hours, tIni.Minutes, tIni.Seconds, tTotal));
+                Console.WriteLine("Teste de stress na API da Emporium realizado com sucesso...");
+            }
             Console.ReadKey();
         }
     }

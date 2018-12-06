@@ -15,68 +15,46 @@ namespace Cencosud.TesteAPI.Services
     public class Servico
     {
         HttpClient cliente = new HttpClient();
-        Uri Api;
+        private Uri ApiURI;
+        private readonly string token = "FrguEYrZ17ky52bGNNC5lDUsJVTfmBmYcXZocKk9WMzGv2a859HZyCzSu9Uf7Grq";
 
         public Servico(int operacao)
         {
             if (operacao == 0)
             {
-                string token = "FrguEYrZ17ky52bGNNC5lDUsJVTfmBmYcXZocKk9WMzGv2a859HZyCzSu9Uf7Grq";
                 cliente.BaseAddress = new Uri("http://g300603sv894:3001/");
                 cliente.DefaultRequestHeaders.Accept.Clear();
                 cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
-                Api = cliente.BaseAddress;
+                ApiURI = cliente.BaseAddress;
             }
-            else if(operacao == 1)
+            else if (operacao == 1)
             {
                 cliente.BaseAddress = new Uri("http://g300603sv091:57772/webservices/GBarbosa.WS.AGP.Service.cls?");
                 cliente.DefaultRequestHeaders.Accept.Clear();
                 cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
-                Api = cliente.BaseAddress;
+                ApiURI = cliente.BaseAddress;
             }
             else if (operacao == 2)
             {
                 cliente.BaseAddress = new Uri("http://localhost:8090/");
                 cliente.DefaultRequestHeaders.Accept.Clear();
                 cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
-                Api = cliente.BaseAddress;
+                ApiURI = cliente.BaseAddress;
             }
         }
 
-        public async Task<AddUserResponse> AddUsuario(AddUserRequest request)
+        public async Task<Response> ApiEmporiumUserAsync(Request request)
         {
             try
             {
-                var msg = string.Empty;
-                var uri = Api + "api/Emporium/sp_UserAGP";
-
+                string uri = ApiURI + "api/Emporium/sp_UserAGP";
                 var serializedAgent = JsonConvert.SerializeObject(request);
                 var content = new StringContent(serializedAgent, Encoding.UTF8, "application/json");
                 var response = await cliente.PostAsync(uri, content);
 
                 var result = response.Content.ReadAsStringAsync().Result;
-                var user = JsonConvert.DeserializeObject<AddUserResponse>(result.Remove(0, result.IndexOf("p_CPF") - 2).Substring(0, result.Remove(0, 12).Length - 1));
-
-                return user;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(string.Format("Não foi possível efetuar consulta aos dados do usuário: Erro - {0}", e.Message));
-            }
-        }
-
-        public async Task<ObterUserResponse> ObterUsuario(ObterUserRequest request)
-        {
-            try
-            {
-                string uri = Api + "api/Emporium/sp_UserAGP";
-                var serializedAgent = JsonConvert.SerializeObject(request);
-                var content = new StringContent(serializedAgent, Encoding.UTF8, "application/json");
-                var response = await cliente.PostAsync(uri, content);
-
-                var result = response.Content.ReadAsStringAsync().Result;
-                var user = JsonConvert.DeserializeObject<ObterUserResponse>(result.Remove(0, result.IndexOf("p_CPF") - 2).Substring(0, result.Remove(0, 12).Length - 1));
+                var user = JsonConvert.DeserializeObject<Response>(result.Remove(0, result.IndexOf("p_CPF") - 2).Substring(0, result.Remove(0, 12).Length - 1));
 
                 return user;
             }
@@ -90,13 +68,14 @@ namespace Cencosud.TesteAPI.Services
         {
             try
             {
-                var uri = Api + "soap_method=ConsultaFuncionario&cpf=" + request;
+                var uri = ApiURI + "soap_method=ConsultaFuncionario&cpf=" + request;
                 var response = await cliente.GetAsync(uri);
                 var result = response.Content.ReadAsStringAsync().Result;
                 var doc = new XmlDocument();
                 doc.LoadXml(result);
                 var xnList = doc.GetElementsByTagName("ItemFuncionario");
-                var user = new Funcionario() {
+                var user = new Funcionario()
+                {
                     CdnFuncionario = xnList[0]["cdnFuncionario"].InnerText,
                     Numdigitoverfdorfunc = xnList[0]["numdigitoverfdorfunc"].InnerText,
                     CdnEmpresa = xnList[0]["cdnEmpresa"].InnerText,
@@ -137,7 +116,7 @@ namespace Cencosud.TesteAPI.Services
         {
             try
             {
-                string uri = Api + "api/UsuarioAD/ListarPorLogin?request=" + request;
+                string uri = ApiURI + "api/UsuarioAD/ListarPorLogin?request=" + request;
 
                 var response = await cliente.GetAsync(uri);
                 var result = response.Content.ReadAsStringAsync().Result;
