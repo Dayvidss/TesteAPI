@@ -20,22 +20,24 @@ namespace Cencosud.TesteAPI.Arguments.Usuario
         public string Cod_agp { get; set; }
         [JsonProperty("origem")]
         public int Origem { get; set; }
+        [JsonProperty("senha")]
+        public string Senha { get; set; }
 
         protected Request()
         {
 
         }
 
-        public Request(string cpf, string matricula, int loja, int acao)
+        public Request(string cpf, string matricula, int loja, int acao, int origem)
         {
             Cpf = cpf;
             Matricula = matricula;
             Loja = loja;
             Acao = acao;
-            Origem = 1;
+            Origem = origem;
         }
 
-        public Request(string cpf, string matricula, string nome, string perfil, int loja, int acao, string cod_agp)
+        public Request(string cpf, string matricula, string nome, string perfil, int loja, int acao, int origem, string cod_agp, string senha)
         {
             Cpf = cpf;
             Matricula = matricula;
@@ -44,7 +46,8 @@ namespace Cencosud.TesteAPI.Arguments.Usuario
             Loja = loja;
             Acao = acao;
             Cod_agp = cod_agp;
-            Origem = 1;
+            Origem = origem;
+            Senha = senha;
         }
 
         public static explicit operator Request(Entities.Usuario entidade)

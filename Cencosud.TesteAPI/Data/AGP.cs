@@ -4,53 +4,75 @@ namespace Cencosud.TesteAPI.Data
 
     public partial class AGP : DbContext
     {
-        public AGP()
-            : base("name=AGP")
+        private static string connectionString = Context();
+
+        public AGP() : base(connectionString)
         {
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
-        public virtual DbSet<Acao> Acao { get; set; }
-        public virtual DbSet<Ambiente> Ambiente { get; set; }
-        public virtual DbSet<Aplicativo> Aplicativo { get; set; }
-        public virtual DbSet<Aplicativo_Ambiente> Aplicativo_Ambiente { get; set; }
-        public virtual DbSet<Arquivo_Ticket> Arquivo_Ticket { get; set; }
-        public virtual DbSet<Autorizante_App> Autorizante_App { get; set; }
-        public virtual DbSet<Bandeira> Bandeira { get; set; }
-        public virtual DbSet<Banner> Banner { get; set; }
-        public virtual DbSet<Categoria> Categoria { get; set; }
-        public virtual DbSet<Colecao> Colecao { get; set; }
-        public virtual DbSet<Constrinfo> Constrinfo { get; set; }
-        public virtual DbSet<Conteudo> Conteudo { get; set; }
-        public virtual DbSet<Funcao> Funcao { get; set; }
-        public virtual DbSet<Grupo_Atendimento> Grupo_Atendimento { get; set; }
-        public virtual DbSet<GrupoAtendimento_Usuario> GrupoAtendimento_Usuario { get; set; }
-        public virtual DbSet<Inf_Adicional> Inf_Adicional { get; set; }
-        public virtual DbSet<Inf_Adicional_Tipo_Colecao> Inf_Adicional_Tipo_Colecao { get; set; }
-        public virtual DbSet<Log_Sistema> Log_Sistema { get; set; }
-        public virtual DbSet<Loja> Loja { get; set; }
-        public virtual DbSet<Marco_Tramitacao> Marco_Tramitacao { get; set; }
-        public virtual DbSet<Modulo> Modulo { get; set; }
-        public virtual DbSet<Parametro> Parametro { get; set; }
-        public virtual DbSet<Perfil> Perfil { get; set; }
-        public virtual DbSet<Perfil_App> Perfil_App { get; set; }
-        public virtual DbSet<Perfil_App_Conteudo> Perfil_App_Conteudo { get; set; }
-        public virtual DbSet<Perfil_Usuario> Perfil_Usuario { get; set; }
-        public virtual DbSet<Permissao> Permissao { get; set; }
-        public virtual DbSet<Pessoa> Pessoa { get; set; }
-        public virtual DbSet<Pessoa_Solicitacao> Pessoa_Solicitacao { get; set; }
-        public virtual DbSet<Registro_Massivo> Registro_Massivo { get; set; }
-        public virtual DbSet<Solicitacao> Solicitacao { get; set; }
-        public virtual DbSet<Status_Ticket> Status_Ticket { get; set; }
-        public virtual DbSet<Ticket> Ticket { get; set; }
-        public virtual DbSet<Tipo_Banner> Tipo_Banner { get; set; }
-        public virtual DbSet<Tipo_Colecao> Tipo_Colecao { get; set; }
-        public virtual DbSet<Tipo_Inf_Adicional> Tipo_Inf_Adicional { get; set; }
-        public virtual DbSet<Tramitacao> Tramitacao { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<Valor_Informacao> Valor_Informacao { get; set; }
-        public virtual DbSet<Video_Tela_Inicial> Video_Tela_Inicial { get; set; }
-        public virtual DbSet<Acesso> Acesso { get; set; }
-        public virtual DbSet<AdTable> AdTable { get; set; }
+        private static string Context()
+        {
+            // Servidor Homologação
+            //var servidor = "G300603Sv02Y";
+            // Servidor Produção
+            var servidor = "G300603SV0CB";
+            var dataBase = "AGP";
+            var persistSecurityInfo = "True";
+            var userId = "usr_agpbr";
+            // Senha homologação
+            //var password = "usr_agpbr";
+            // Senha Produção
+            var password = "2Gv#7aD!y@1m";
+            var multipleActiveResultSets = "True";
+
+            var connectionString = string.Format("data source = {0}; initial catalog = {1}; persist security info = {2}; user id = {3}; password = {4}; MultipleActiveResultSets = {5}; App = EntityFramework", servidor, dataBase, persistSecurityInfo, userId, password, multipleActiveResultSets);
+            return connectionString;
+        }
+
+        public virtual IDbSet<Acao> Acao { get; set; }
+        public virtual IDbSet<Ambiente> Ambiente { get; set; }
+        public virtual IDbSet<Aplicativo> Aplicativo { get; set; }
+        public virtual IDbSet<Aplicativo_Ambiente> Aplicativo_Ambiente { get; set; }
+        public virtual IDbSet<Arquivo_Ticket> Arquivo_Ticket { get; set; }
+        public virtual IDbSet<Autorizante_App> Autorizante_App { get; set; }
+        public virtual IDbSet<Bandeira> Bandeira { get; set; }
+        public virtual IDbSet<Banner> Banner { get; set; }
+        public virtual IDbSet<Categoria> Categoria { get; set; }
+        public virtual IDbSet<Colecao> Colecao { get; set; }
+        public virtual IDbSet<Constrinfo> Constrinfo { get; set; }
+        public virtual IDbSet<Conteudo> Conteudo { get; set; }
+        public virtual IDbSet<Funcao> Funcao { get; set; }
+        public virtual IDbSet<Grupo_Atendimento> Grupo_Atendimento { get; set; }
+        public virtual IDbSet<GrupoAtendimento_Usuario> GrupoAtendimento_Usuario { get; set; }
+        public virtual IDbSet<Inf_Adicional> Inf_Adicional { get; set; }
+        public virtual IDbSet<Inf_Adicional_Tipo_Colecao> Inf_Adicional_Tipo_Colecao { get; set; }
+        public virtual IDbSet<Log_Sistema> Log_Sistema { get; set; }
+        public virtual IDbSet<Loja> Loja { get; set; }
+        public virtual IDbSet<Marco_Tramitacao> Marco_Tramitacao { get; set; }
+        public virtual IDbSet<Modulo> Modulo { get; set; }
+        public virtual IDbSet<Parametro> Parametro { get; set; }
+        public virtual IDbSet<Perfil> Perfil { get; set; }
+        public virtual IDbSet<Perfil_App> Perfil_App { get; set; }
+        public virtual IDbSet<Perfil_App_Conteudo> Perfil_App_Conteudo { get; set; }
+        public virtual IDbSet<Perfil_Usuario> Perfil_Usuario { get; set; }
+        public virtual IDbSet<Permissao> Permissao { get; set; }
+        public virtual IDbSet<Pessoa> Pessoa { get; set; }
+        public virtual IDbSet<Pessoa_Solicitacao> Pessoa_Solicitacao { get; set; }
+        public virtual IDbSet<Registro_Massivo> Registro_Massivo { get; set; }
+        public virtual IDbSet<Solicitacao> Solicitacao { get; set; }
+        public virtual IDbSet<Status_Ticket> Status_Ticket { get; set; }
+        public virtual IDbSet<Ticket> Ticket { get; set; }
+        public virtual IDbSet<Tipo_Banner> Tipo_Banner { get; set; }
+        public virtual IDbSet<Tipo_Colecao> Tipo_Colecao { get; set; }
+        public virtual IDbSet<Tipo_Inf_Adicional> Tipo_Inf_Adicional { get; set; }
+        public virtual IDbSet<Tramitacao> Tramitacao { get; set; }
+        public virtual IDbSet<Usuario> Usuario { get; set; }
+        public virtual IDbSet<Valor_Informacao> Valor_Informacao { get; set; }
+        public virtual IDbSet<Video_Tela_Inicial> Video_Tela_Inicial { get; set; }
+        public virtual IDbSet<Acesso> Acesso { get; set; }
+        public virtual IDbSet<AdTable> AdTable { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

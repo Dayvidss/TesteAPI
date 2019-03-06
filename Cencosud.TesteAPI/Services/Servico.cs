@@ -22,7 +22,8 @@ namespace Cencosud.TesteAPI.Services
         {
             if (operacao == 0)
             {
-                cliente.BaseAddress = new Uri("http://g300603sv894:3001/");
+                //cliente.BaseAddress = new Uri("http://g300603sv894:3001/");
+                cliente.BaseAddress = new Uri("http://g300603nt113:3001/");
                 cliente.DefaultRequestHeaders.Accept.Clear();
                 cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
@@ -48,7 +49,7 @@ namespace Cencosud.TesteAPI.Services
         {
             try
             {
-                string uri = ApiURI + "api/Emporium/sp_UserAGP";
+                string uri = ApiURI + "api/Emporium/UserAGPHomolog";
                 var serializedAgent = JsonConvert.SerializeObject(request);
                 var content = new StringContent(serializedAgent, Encoding.UTF8, "application/json");
                 var response = await cliente.PostAsync(uri, content);
